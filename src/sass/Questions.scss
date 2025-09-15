@@ -1,0 +1,95 @@
+.questions{
+    max-width: 54rem;
+    width: 100%;
+    @include padding-top;
+    padding-bottom: $s-900;
+    @include flex(column, center, center);
+    gap: 5.6rem 0;
+    align-self: center;
+    
+}
+.questions__text-block{
+    @include flex(column, flex-start, center);
+    gap: 1.6rem 0;
+    text-align: center;
+}
+.questions__title{
+    color: $blue-950;
+    @include text-preset-2;
+    @media screen and (max-width: 450px) {
+        @include text-preset-1-mobile;
+    }
+}
+.questions__description{
+    color: $blue-950;
+    opacity: 50%;
+    @include text-preset-4;
+    @media screen and (max-width: 450px) {
+        @include text-preset-2-mobile($regular);
+    }
+}
+.questions__btn-moreInfo{
+    @include btn-style;
+    @include blue-btn;
+    @include text-preset-6($medium);
+    font-weight: $semiBold;
+    padding-left: $s-300;
+    padding-right: $s-300;
+}
+.faqlist{
+    width: 100%;
+}
+.faqlist__faqItem-wrapper{
+    @include itemWithLine($grey-shadow, 1.6rem);
+}
+.faqItem{
+    width: 100%;
+}
+.faqItem__question-wrapper{
+    width: 100%;
+    @include flex(row, space-between, center);
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    &:hover .faqItem__question{
+        color: $red;
+    }
+    &:active{
+        filter: brightness(50%);
+    }
+}
+.faqItem__question{
+    transition: 200ms;
+    color: $blue-950;
+    @include text-preset-4;
+    @media screen and (max-width: 450px) {
+        @include text-preset-2-mobile($regular);
+    }
+}
+.faqItem__arrow{
+    position: relative;
+    right: $s-300;
+    transition: all 500ms ease;
+    &.reverseArrow{
+        transform: rotate(180deg);
+        & svg path{
+            stroke: $red;
+        }
+    }
+}
+.faqItem__answer{
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    transition: all 500ms ease;
+    color: $blue-950; 
+    opacity: 75%;   
+    @include text-preset-5($light);
+    @media screen and (max-width: 450px) {
+        @include text-preset-2-mobile($light);
+    }
+    &.openAnswer{
+        padding-top: 1.6rem;
+        max-height: 20rem;
+    }
+}

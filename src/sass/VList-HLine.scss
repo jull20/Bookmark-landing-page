@@ -1,0 +1,15 @@
+.list{
+    width: 100%;
+}
+.list__item{
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    padding: 1.6rem 0;
+    border-bottom: .1rem solid $grey-shadow;
+    list-style-type: none;
+    cursor: pointer;
+
+    &:first-child{
+        border-top: .1rem solid $grey-shadow;
+    }
+}

@@ -1,0 +1,68 @@
+.button{
+    border: .3rem solid transparent;
+    border-radius: .5rem;
+    transition: 200ms;
+    cursor: pointer;
+    text-wrap-mode: nowrap;
+
+    width: 100%;
+    max-width: 16.6rem;
+    min-width: 12.4rem;
+    max-height: 4.8rem;
+    padding: 8px 0;
+
+    flex: 1 1 4.8rem;
+    &:active{
+        filter: brightness(90%);
+    }
+    @media screen and (max-width:450px) and (orientation: portrait) {
+        flex-basis: 12.4rem;
+    }
+    .card &{
+        max-width: none;
+    }
+}
+.orange{
+    color: $white;
+    background-color: $red;
+    @include text-preset-6($regular);
+    text-transform: uppercase;
+    &:hover{
+        background-color: $white;
+        border-color: $red;
+        color: $red;
+    }
+}
+.blue{
+    background-color: $blue-600;
+    color: $white;
+    @include text-preset-6($medium);
+    font-weight: 600;
+    @media screen and (max-width: 450px){
+        @include text-preset-2-mobile($medium);
+        font-weight: 600;
+    }
+    &:hover{
+        background-color: $white;
+        border-color: $blue-600;
+        color: $blue-600;
+    }
+}
+.grey{
+
+    background-color: $grey-50; 
+    opacity: 75%;
+    color: $blue-950;
+    @include text-preset-6($medium);
+    font-weight: 600;
+    box-shadow: 0 .8rem .8rem -.4rem rgba(73, 93, 207, 0.05);
+    @media screen and (max-width: 450px){
+        @include text-preset-2-mobile($medium);
+        font-weight: 600;
+    }
+    &:hover{
+        background-color: $white;
+        border-color: $grey-600;
+        color: $grey-600;
+    }
+}

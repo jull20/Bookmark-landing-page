@@ -1,0 +1,110 @@
+.tabs-menu{
+    width: 100%;
+    @include flex(column, center, center);
+}
+
+@mixin tabsMenu-hr($color, $bottom){
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+    width: 100%;
+    background-color: $color;
+    height: .1rem;
+    @if($color == $red){
+        height: .4rem;
+    }
+}
+
+.tabs-menu__tabs{
+    position: relative;
+    width: 100%;
+    max-width: 73rem;
+    @media screen and (min-width:650px){
+        padding-bottom: 24px;
+        @include flex(row, center, center);
+        &:after{
+            @include tabsMenu-hr($grey-shadow, 0);
+        }
+    }
+    @media screen and (max-width:650px){
+        @include flex(column, flex-start, center);
+        &:before{
+            @include tabsMenu-hr($grey-shadow, 100%);
+        }
+    }
+}
+.tabs-menu__button{
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    @include text-preset-5($regular);
+    color: $blue-950;
+    opacity: 75%;
+    position: relative;
+    
+    @media screen and (min-width:650px){
+        flex: 1 1 24.3rem;
+        &.tabs-menu__button-curr:after{
+            @include tabsMenu-hr($red, -$s-300);
+        }
+    }
+    @media screen and (max-width:650px){
+        padding: 1.6rem 0;
+        width: 100%;
+        &.tabs-menu__button-curr:before{
+            @include tabsMenu-hr($red, 0);
+            @include margin-center;
+            width: 16.3rem;
+
+        }
+        &:after{
+            @include tabsMenu-hr($grey-shadow, 0);
+        }
+    }
+}
+
+
+
+$width: calc(100vw - (100vw - 100%)/2);
+
+.tabs-menu-content{
+    @include flex(column, center, center);
+    gap: clamp(3.2rem, 5vw, 6.4rem) 0;
+    @media screen and (min-width:1024px) and (orientation: landscape)  {
+        @include flex(row, flex-start, center);
+        gap: 0 12rem;
+        align-self: flex-end;
+        width: $width;
+    }
+}
+.tabs-menu__img{
+    width: $width;
+    align-self: flex-end;
+    aspect-ratio: 3/2;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @media screen and (min-width:1024px) and (orientation: landscape)  {
+        flex: 2 2 70rem;
+    }
+}
+.tabs-menu__text-block{
+    @include flex(column, flex-start, center);
+    gap: clamp(1.6rem, 4vw, 2.4rem) 0;
+    text-align: center;
+    @media screen and (min-width:1024px) and (orientation: landscape)  {
+        @include flex(column, flex-start, flex-start);
+        flex: 1 1 45rem;
+        text-align: start;
+    }
+}
+.tabs-menu__title{
+    color: $blue-950;
+    @include text-preset-2;
+}
+.tabs-menu__description{
+    color: $blue-950;
+    opacity: 50%;
+    @include text-preset-4;
+}

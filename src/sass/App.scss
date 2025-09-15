@@ -1,0 +1,40 @@
+@import 'design-system';
+@import 'Header';
+@import 'Hero';
+@import 'Features';
+@import 'Extension';
+@import 'Questions';
+@import 'Feedback';
+@import 'Footer';
+@import 'Button';
+@import 'TabsMenu';
+@import 'SideMenu';
+@import 'Navigation';
+@import 'SocialMedia';
+@import 'VList-HLine';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Rubik';
+    overflow-x: hidden;
+
+    &:has(.sideMenu_active){
+        overflow: hidden;
+    }
+}
+#root{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $white;
+    @include flex(column, flex-start, center);
+}
+.main{
+    @include w-viewport;
+    display: flex;
+    flex-direction: column;
+}

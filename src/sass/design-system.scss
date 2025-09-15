@@ -1,0 +1,212 @@
+$white:    #FFFFFF;
+$black:    #000000;
+$blue-600: #5267DF;
+$blue-950: #242A45;
+$grey-50:  #F7F7F7;
+$grey-600: #5B6074;
+$red:      #FA5959;
+$grey-shadow:  rgba(73, 93, 207, 0.2001);
+
+$s-0:    0;
+$s-100:  .8rem;
+$s-200:  1.6rem;
+$s-300:  2.4rem;
+$s-400:  3.2rem;
+$s-500:  4rem;
+$s-600:  4.8rem;
+$s-700:  5.6rem;
+$s-800:  6.4rem;
+$s-900:  7.2rem;
+$s-1500: 12rem;
+
+$light:    300;
+$regular:  400;
+$medium:   500;
+$semiBold: 600;
+
+$vw-dt:  111rem; 
+$vw-tab: 61rem; 
+$vw-mb:  31rem; 
+
+@mixin flex($direction, $main-axis, $cross-axis){
+    display:         flex;
+    flex-direction:  $direction;
+    justify-content: $main-axis;
+    align-items:     $cross-axis;
+}
+@mixin w-viewport{
+    @media screen and (min-width: 1024px) {
+        width: clamp(90rem, 77vw, 148rem);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1024px) {
+        width: clamp(40rem, 79.5vw, 90rem);
+    }
+    @media screen and (max-width: 450px) {
+        width: clamp(20rem, 83.5vw, 90rem);
+    }
+}
+@mixin padding-top{
+    @media screen and (min-width: 1024px) {
+        padding-top: clamp(10rem, 9vw, 148rem);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1024px) {
+        padding-top: clamp(10rem, 19vw, 19rem);
+    }
+    @media screen and (max-width: 450px) {
+        padding-top: clamp(13rem, 10vw, 19rem);
+    }
+}
+@mixin margin-center{
+    margin: 0 50%;
+    transform: translateX(-50%);
+}
+@mixin btn-style{
+    border: .3rem solid transparent;
+    border-radius: .5rem;
+    transition: 200ms;
+    cursor: pointer;
+    text-wrap-mode: nowrap;
+    padding-top: $s-100;
+    padding-bottom: $s-100;
+    
+    &:active{
+        filter: brightness(90%);
+    }
+}
+@mixin orange-btn{
+    color: $white;
+    background-color: $red;
+    &:hover{
+        background-color: $white;
+        border-color: $red;
+        color: $red;
+    }
+}
+@mixin blue-btn{
+    background-color: $blue-600;
+    color: $white;
+    &:hover{
+        background-color: $white;
+        border-color: $blue-600;
+        color: $blue-600;
+    }
+}
+@mixin grey-btn{
+    background-color: $grey-50; 
+    opacity: 75%;
+    color: $blue-950;
+    box-shadow: 0 .8rem .8rem -.4rem rgba(73, 93, 207, 0.05);
+    &:hover{
+        background-color: $white;
+        border-color: $grey-600;
+        color: $grey-600;
+    }
+}
+@mixin transparent-btn{
+    background-color: transparent;
+    border: .2rem solid $white;
+    color: $white;
+    text-transform: uppercase;
+}
+
+@mixin itemWithLine($lineColor, $y){
+    width: 100%;
+    @include flex(column, flex-start, center);
+    padding: $y 0;
+    border-bottom: .1rem solid $lineColor;
+    list-style-type: none;
+    cursor: pointer;
+
+    &:first-child{
+        border-top: .1rem solid $lineColor;
+    }
+}
+
+@mixin text-preset-1{
+    font-size:      4.8rem;
+    font-weight:    $medium;
+    line-height:    110%;
+    letter-spacing: 0;
+}
+@mixin text-preset-2{
+    font-size:      3.2rem;
+    font-weight:    $medium;
+    line-height:    125%;
+    letter-spacing: -.1rem;
+}
+@mixin text-preset-3{
+    font-size:      2rem;
+    font-weight:    $medium;
+    line-height:    120%;
+    letter-spacing: .025rem;
+}
+@mixin text-preset-4{
+    font-size:      1.8rem;
+    font-weight:    $regular;
+    line-height:    155%;
+    letter-spacing: 0;
+}
+@mixin text-preset-5($weight){
+    font-size:      1.6rem;
+    font-weight:    $weight;
+    @if($weight == $light){
+        line-height: 225%;
+    }
+    @if($weight == $regular){
+        line-height: 110%;
+    }
+    letter-spacing: .05rem;
+}
+@mixin text-preset-6($weight){
+    font-size:      1.4rem;
+    font-weight:    $weight;
+    line-height:    200%;
+    letter-spacing: .025rem;
+    @if($weight == $semiBold){
+        line-height: 300%;
+        letter-spacing: .5rem;
+    }
+}
+@mixin text-preset-7{
+    font-size:      1rem;
+    font-style:     italic;
+    font-weight:    $medium;
+    line-height:    120%;
+    letter-spacing: .025rem;
+}
+
+@mixin text-preset-1-mobile{
+    font-size:      3rem;
+    font-weight:    $medium;
+    line-height:    135%;
+    letter-spacing: 0;
+}
+@mixin text-preset-2-mobile($weight){
+    font-size:      1.5rem;
+    font-weight:    $weight;
+    line-height:    200%;
+    @if($weight == $regular){
+        line-height: 165%;   
+    }
+    letter-spacing: 0;
+}
+@mixin text-preset-3-mobile{
+    font-size:      1.2rem;
+    font-weight:    $medium;
+    line-height:    300%;
+    letter-spacing: .5rem;
+}
+@mixin text-preset-4-mobile{
+    font-size:      1rem;
+    font-style:     italic;
+    font-weight:    $medium;
+    line-height:    120%;
+    letter-spacing: .025rem;
+}
+
+@mixin text-preset-sideMenu($weight){
+    font-size:      2rem;
+    font-weight:    $weight;
+    line-height:    1.7rem;
+    letter-spacing: .231rem;
+}

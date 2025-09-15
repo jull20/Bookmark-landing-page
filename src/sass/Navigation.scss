@@ -1,0 +1,48 @@
+.navigation{
+    display: block;
+    width: 100%
+}
+
+.navigation__list{
+    @include flex(row, flex-start, center);
+    gap: 0 $s-600;
+    list-style-type: none;
+    .footer &{
+        @media screen and (max-width:1024px){
+            gap: 0 clamp(2.4rem, 3.5vw, 4.8rem);
+        }
+        @media screen and (max-width:450px){
+            @include flex(column, center, center);
+            gap: $s-300 0;
+        }
+    }
+    .sideMenu &{
+        width: 100%;
+        @include flex(column, center, center);        
+    }
+}
+.navigation__item{
+    .sideMenu &{
+        @include itemWithLine(rgba(255, 255, 255, 0.15), 3.2rem);
+    }
+}
+.navigation__item a{
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 200ms;
+    .header &{
+        color: $blue-950;
+        @include text-preset-6($regular);
+    }
+    .footer &{
+        color: $white;
+        @include text-preset-6($regular);
+    }
+    .sideMenu &{
+        color: $white;
+        @include text-preset-sideMenu($regular);
+    }
+    &:hover{
+        color: $red;
+    }
+}

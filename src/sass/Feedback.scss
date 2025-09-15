@@ -1,0 +1,104 @@
+.feedback{
+    align-self: center;
+    @include flex(column, center, center);
+    width: 100vw;
+    height: 36rem;
+    background-color: $blue-600;
+}
+.feedback__content{
+    @include flex(column, center, center);
+    gap: $s-400 $s-0;
+    @include w-viewport;
+    max-width: 44.2rem;
+}
+.feedback__text-block{
+    text-align: center;
+    @include flex(column, flex-start, center);
+    gap: $s-300 $s-0;
+    @media screen and (max-width:450px){
+        gap: 0;
+    }
+}
+.feedback__description{
+    color: $white;
+    @include text-preset-6($semiBold);
+    @media screen and (max-width:450px){
+        @include text-preset-3-mobile;
+    }
+}
+.feedback__title{
+    color: $white;
+    @include text-preset-2;
+    @media screen and (max-width:450px){
+        @include text-preset-1-mobile;
+    }
+}
+.feedback__form{
+    width: 100%;
+    @include flex(row, center, flex-start);
+    flex-wrap: wrap;
+    gap: $s-200;
+}
+.feedback__input-wrapper{
+    flex: 2 1 30rem;
+    position: relative;
+    &:before{
+        content: 'Whoops, make sure it’s an email';
+        opacity: 0;
+        position: absolute;
+        bottom: 6px;
+        left: 20px;
+        color: $white;
+        transition: opacity 500ms;
+        @include text-preset-7;
+        @media screen and (max-width:450px) {
+            @include text-preset-4-mobile;
+        }
+    }
+    &:after{
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: 14px;
+        right: 13px;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background-image: url(src/assets/images/icon-error.svg);
+        transition: opacity 500ms;
+    }
+    &:has(.errorInput):before,
+    &:has(.errorInput):after
+    {
+        opacity: 1;
+    }
+}
+.feedback__input{
+    width: 100%;
+    height: $s-600;
+    border-radius: .5rem;
+    border: solid transparent;
+    border-width: .3rem .3rem .3rem .3rem;
+    padding: .8rem 3.3rem .8rem 2.4rem;
+    @include text-preset-6($regular);
+    transition: all 500ms;
+    &.errorInput{
+        border-color: $red;
+        border-bottom-width: 2.5rem;
+        height: 7rem;
+    }
+
+
+}
+// .feedback__error-img{
+//     position absolute
+// }
+
+.feedback__contact-btn{
+    flex: 1 1 12rem;
+    height: $s-600;
+    @include text-preset-6($medium);
+    font-weight: 600;
+    @include btn-style;
+    @include orange-btn;
+}

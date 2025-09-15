@@ -1,0 +1,42 @@
+.sideMenu{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(36, 42, 69, 0.95);
+    &_visible{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        @include flex(column, flex-start, center);
+        gap: $s-500 0;
+    }
+}
+.sideMenu__header{
+    @include w-viewport;
+    padding-top: 4rem;
+    @include flex(row, space-between, center);
+}
+.sideMenu__close{
+    border: none;
+    background-color: rgba(0, 0, 0, 0)
+}
+.sideMenu__content{
+    @include flex(column, space-between, center);
+    @include w-viewport;
+    padding-bottom: 4rem;
+    height: 100%;
+}
+.sideMenu__navigation{
+    width: 100%;
+    @include flex(column, center, center);
+    gap: $s-400 0;
+}
+.sideMenu__btn-login{
+    @include btn-style;
+    @include transparent-btn;
+    @include text-preset-sideMenu($semiBold);
+    padding-top:    $s-200;
+    padding-bottom: $s-200;
+    width: 100%;
+}

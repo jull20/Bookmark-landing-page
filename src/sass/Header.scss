@@ -1,0 +1,23 @@
+.header{
+    position: fixed;
+    top: $s-600;
+    z-index: 100;
+    @include w-viewport;
+    @include flex(row, space-between, center);
+    @media screen and (max-width:1024px) and (orientation: portrait) {
+        top: $s-500;
+    }
+}
+.header__sideMenu{
+    display: none;
+    @media screen and (max-width: 770px){
+        display: block;
+    }
+}
+.header__navigation-wrapper{
+    @include flex(row, center, center);
+    gap: 0 $s-600;
+    @media screen and (max-width: 770px){
+        display: none;
+    }
+}

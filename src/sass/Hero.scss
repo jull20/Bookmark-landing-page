@@ -1,0 +1,63 @@
+$width: calc(100vw - (100vw - 100%)/2);
+.hero{
+    height: 100vh;
+    @include padding-top;
+    padding-bottom: $s-900;
+    @include flex(column-reverse, center, center);
+    gap: clamp(4.8rem, 10vw, 7.2rem);
+    @media screen and (min-width:1024px) and (orientation: landscape){
+        width: $width;
+        @include flex(row, flex-start, center);
+        gap: 0 $s-500;
+    }
+}
+.hero__text-wrapper{
+    @include flex(column, flex-start, center);
+    gap: $s-300 0;
+    text-align: center;
+    @media screen and (min-width:1024px) and (orientation: landscape){
+        flex: 1 1 54rem;
+        text-align: start;
+        align-items: flex-start;
+    }
+}
+.hero__title{
+    text-wrap-style: pretty;
+    color: $blue-950;
+    @include text-preset-1;
+    @media screen and (max-width:450px) {
+        @include text-preset-1-mobile;
+    }
+}
+.hero__description{
+    color: $blue-950;
+    opacity: 50%;
+    @include text-preset-4;
+    @media screen and (max-width:450px) {
+        @include text-preset-2-mobile($regular);
+    }
+}
+.hero__button-wrapper{
+    flex-wrap: wrap;
+    width: 100%;
+    @include flex(row, center, center);
+    gap: 0 $s-200;
+    @media screen and (min-width:1024px) and (orientation: landscape){
+        @include flex(row, flex-start, center);
+    }
+}
+.heroImg{
+    align-self: flex-start;
+    width: $width;
+    aspect-ratio: 3/2;
+    max-height: 100%;
+    background-image: url(../assets/images/MaskGroup-2.svg);
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @media screen and (min-width:1024px) and (orientation: landscape){
+        flex: 2 2 69.7rem;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+}

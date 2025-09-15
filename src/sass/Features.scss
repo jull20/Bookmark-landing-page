@@ -1,0 +1,30 @@
+.features{
+    height: 100%;
+    width: 100%;
+    @include padding-top;
+    padding-bottom: $s-900;
+    @include flex(column, center, center);
+    gap: $s-900 0;
+    @media screen and (max-width: 450px) {
+        gap: $s-400 0;
+    }
+}
+.features__text-block{
+    @include flex(column, center, center);
+    gap: $s-200 0;
+    text-align: center;
+    max-width: 54rem;
+}
+.features__title{
+    color: $blue-950;
+    @include text-preset-2;
+}
+.features__description{
+    color: $blue-950;
+    opacity: 50%;
+    @include text-preset-4;
+}
+
+
+
+
